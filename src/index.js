@@ -73,7 +73,7 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
 
   if(!todo) return response.status(404).json({ error: 'Todo not found' });
 
-  todo.title = title ?? todo.title;
+  todo.title = title ? DataTransferItemList : todo.title;
   todo.deadline = deadline ? new Date(deadline) : todo.deadline;
 
   return response.json(todo);
